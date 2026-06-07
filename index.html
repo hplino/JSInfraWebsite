@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS Infra Projects &ndash; Building Trust, Creating Future</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gl:#E8C96E;--gd:#A0802A;
+  --d:#080808;--d2:#0f0f0f;--d3:#161616;--d4:#1e1e1e;
+  --t:#d4d4d4;--tm:#888;--tl:#aaa;--w:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;background:var(--d);color:var(--t);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+.container{max-width:1240px;margin:0 auto;padding:0 44px}
+
+/* UTILITY */
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:700;font-family:'Raleway',sans-serif}
+.eyebrow::before{content:'';width:36px;height:1px;background:var(--gold);display:block}
+.big-title{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--w);line-height:1.18;font-weight:600}
+.big-title em{color:var(--gold);font-style:normal}
+.gold-rule{width:52px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:26px 0 38px}
+.gold-rule.c{margin:26px auto 38px;background:linear-gradient(90deg,transparent,var(--gold),transparent);width:88px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 42px;font-family:'Raleway',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all .35s ease;border:none;outline:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#8a6618);color:#060606}
+.btn-gold:hover{background:linear-gradient(135deg,var(--gl),var(--gold));transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.28)}
+.btn-ghost{background:transparent;color:var(--w);border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.fl{transform:translateX(-48px)}
+.reveal.fr{transform:translateX(48px)}
+.reveal.vis{opacity:1;transform:none}
+
+/* NAVBAR */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .5s ease}
+#navbar.scrolled{background:rgba(8,8,8,.97);box-shadow:0 1px 0 rgba(201,168,76,.18),0 8px 40px rgba(0,0,0,.6);backdrop-filter:blur(18px)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 44px;display:flex;align-items:center;justify-content:space-between;height:100px}
+.nav-logo img{height:88px;width:auto}
+.nav-links{display:flex;align-items:center;gap:38px}
+.nav-links a{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.58);transition:color .3s;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .35s ease}
+.nav-links a:hover{color:var(--w)}
+.nav-links a:hover::after{right:0}
+.nav-cta{border:1px solid rgba(201,168,76,.45)!important;color:var(--gold)!important;background:transparent!important;padding:10px 28px}
+.nav-cta:hover{background:var(--gold)!important;color:var(--d)!important;border-color:var(--gold)!important}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:26px;height:2px;background:var(--gold);transition:all .3s;display:block}
+.mobile-menu{display:none;position:fixed;inset:88px 0 0;background:rgba(8,8,8,.98);padding:48px 44px;flex-direction:column;z-index:999;backdrop-filter:blur(20px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.15rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--t);padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/project6_jindal_img1.jpg') center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(108deg,rgba(8,8,8,.93) 0%,rgba(8,8,8,.72) 55%,rgba(8,8,8,.38) 100%)}
+.hero-body{position:relative;z-index:1;padding:170px 0 130px;max-width:800px}
+.hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.hero-kicker-bar{width:56px;height:1px;background:var(--gold)}
+.hero-kicker span{font-size:.68rem;letter-spacing:6px;font-weight:700;text-transform:uppercase;color:var(--gold)}
+.hero-h1{font-size:clamp(3.8rem,7.5vw,7rem);font-weight:600;line-height:1.04;color:var(--w);margin-bottom:30px}
+.hero-h1 em{color:var(--gold);font-style:normal;display:block}
+.hero-sub{font-size:.98rem;color:rgba(255,255,255,.6);max-width:500px;line-height:1.95;margin-bottom:52px}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:80px}
+.hero-bar{display:flex;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:44px}
+.hero-stat{padding-right:52px;padding-bottom:8px}
+.hero-stat:not(:last-child){border-right:1px solid rgba(255,255,255,.1);margin-right:52px}
+.hstat-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1}
+.hstat-l{font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:8px}
+
+/* ABOUT */
+#about{padding:140px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}
+.aimg-wrap{position:relative}
+.aimg-main{aspect-ratio:4/5;overflow:hidden}
+.aimg-main img{width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
+.aimg-main:hover img{transform:scale(1.04)}
+.aimg-corner{position:absolute;top:-22px;left:-22px;width:80px;height:80px;border-top:1px solid rgba(201,168,76,.45);border-left:1px solid rgba(201,168,76,.45)}
+.aimg-badge{position:absolute;bottom:-36px;right:-36px;width:156px;height:156px;background:linear-gradient(135deg,var(--gold),var(--gd));display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+.aimg-badge .n{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--d);line-height:1}
+.aimg-badge .l{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,.65);text-align:center;margin-top:6px}
+.about-feats{margin-top:44px}
+.afeat{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.afeat:last-child{border-bottom:none}
+.afeat-icon{flex-shrink:0;width:44px;height:44px;border:1px solid rgba(201,168,76,.22);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.88rem;transition:all .4s}
+.afeat:hover .afeat-icon{background:var(--gold);color:var(--d)}
+.afeat h4{font-family:'Raleway',sans-serif;font-size:.88rem;font-weight:700;color:var(--w);margin-bottom:5px}
+.afeat p{font-size:.85rem;color:var(--tm);line-height:1.8}
+
+/* SERVICES */
+#services{padding:140px 0;background:var(--d2)}
+.svc-head{text-align:center;margin-bottom:80px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.svc-card{background:var(--d3);padding:56px 44px;position:relative;overflow:hidden;transition:background .4s,transform .4s}
+.svc-card::before{content:'';position:absolute;left:0;top:0;bottom:100%;width:2px;background:var(--gold);transition:bottom .5s ease}
+.svc-card:hover::before{bottom:0}
+.svc-card:hover{background:var(--d4);transform:translateY(-5px)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(201,168,76,.1);line-height:1;position:absolute;top:20px;right:28px}
+.svc-icon{width:56px;height:56px;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;margin-bottom:28px;transition:all .4s}
+.svc-card:hover .svc-icon{background:var(--gold);color:var(--d);border-color:var(--gold)}
+.svc-card h3{font-size:1.5rem;font-weight:600;color:var(--w);margin-bottom:16px;line-height:1.3}
+.svc-card p{font-size:.86rem;color:var(--tm);line-height:1.88}
+.svc-more{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:28px;font-weight:700;transition:gap .3s}
+.svc-card:hover .svc-more{gap:16px}
+
+/* PROJECTS */
+#projects{padding:140px 0}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pcard{position:relative;overflow:hidden;cursor:pointer}
+.pcard.w2{grid-column:span 2}
+.pimg{overflow:hidden;height:300px}
+.pcard.w2 .pimg{height:440px}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
+.pcard:hover .pimg img{transform:scale(1.07)}
+.poverlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,4,4,.94) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+.ptag{font-size:.62rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:700}
+.ptitle{font-size:1.4rem;font-weight:600;color:var(--w);line-height:1.25;margin-bottom:8px}
+.ploc{font-size:.76rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px}
+.pyear{position:absolute;top:18px;right:18px;background:var(--gold);color:var(--d);font-size:.62rem;font-weight:800;letter-spacing:1.5px;padding:5px 14px}
+.parrow{position:absolute;top:18px;left:18px;width:38px;height:38px;background:rgba(201,168,76,.9);display:flex;align-items:center;justify-content:center;color:var(--d);opacity:0;transform:translateY(-8px);transition:all .4s}
+.pcard:hover .parrow{opacity:1;transform:translateY(0)}
+
+/* STATS */
+#stats{padding:100px 0;background:linear-gradient(135deg,var(--d2),var(--d3));border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-c{text-align:center;padding:48px 20px;border-right:1px solid rgba(201,168,76,.12);transition:background .4s}
+.stat-c:last-child{border-right:none}
+.stat-c:hover{background:rgba(201,168,76,.04)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-n sup{font-size:2.4rem;vertical-align:top;margin-top:.3em}
+.stat-l{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--tm);margin-top:14px}
+
+/* WHY US */
+#why-us{padding:140px 0;background:var(--d2)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wcard{background:var(--d3);padding:36px 30px;border-bottom:2px solid transparent;transition:all .4s}
+.wcard:hover{border-bottom-color:var(--gold);transform:translateY(-5px);background:var(--d4)}
+.wcard i{font-size:1.4rem;color:var(--gold);margin-bottom:18px;display:block}
+.wcard h4{font-family:'Raleway',sans-serif;font-size:.9rem;font-weight:700;color:var(--w);margin-bottom:10px}
+.wcard p{font-size:.83rem;color:var(--tm);line-height:1.82}
+.why-pts{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.wpt{display:flex;align-items:center;gap:16px;font-size:.88rem;color:var(--tl)}
+.wpt i{color:var(--gold);font-size:.65rem;flex-shrink:0}
+
+/* PROCESS */
+#process{padding:140px 0}
+.proc-head{text-align:center;margin-bottom:88px}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.proc-steps::before{content:'';position:absolute;top:35px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.15))}
+.proc-step{text-align:center;padding:0 28px}
+.proc-circle{width:70px;height:70px;margin:0 auto 28px;border:1px solid rgba(201,168,76,.28);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--gold);background:var(--d);position:relative;z-index:1;transition:all .4s}
+.proc-step:hover .proc-circle{background:var(--gold);color:var(--d);border-color:var(--gold)}
+.proc-num{font-size:.64rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gd);margin-bottom:10px;font-weight:700}
+.proc-step h4{font-size:1.3rem;font-weight:600;color:var(--w);margin-bottom:12px}
+.proc-step p{font-size:.84rem;color:var(--tm);line-height:1.82}
+
+/* TESTIMONIALS */
+#testimonials{padding:140px 0;background:var(--d3)}
+.testi-head{text-align:center;margin-bottom:80px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{background:var(--d4);padding:52px 44px;position:relative;border-top:2px solid rgba(201,168,76,.1);transition:all .4s}
+.tcard:hover{border-top-color:var(--gold);transform:translateY(-6px);box-shadow:0 28px 64px rgba(0,0,0,.45)}
+.tcard-q{font-family:'Cormorant Garamond',serif;font-size:6rem;line-height:.7;color:var(--gold);opacity:.2;display:block;margin-bottom:8px}
+.tcard-text{font-size:.9rem;color:var(--tl);line-height:1.92;font-style:italic;margin-bottom:36px}
+.tcard-author{display:flex;align-items:center;gap:16px}
+.tcard-av{width:48px;height:48px;background:linear-gradient(135deg,var(--gold),var(--gd));display:flex;align-items:center;justify-content:center;font-size:.84rem;font-weight:700;color:var(--d);flex-shrink:0}
+.tcard-stars{color:var(--gold);font-size:.68rem;letter-spacing:3px;margin-bottom:4px}
+.tcard-name{font-size:.9rem;font-weight:700;color:var(--w);letter-spacing:.4px}
+.tcard-role{font-size:.76rem;color:var(--tm)}
+
+/* CONTACT */
+#contact{padding:140px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:100px;align-items:start}
+.contact-items{display:flex;flex-direction:column;gap:30px;margin-top:48px}
+.citem{display:flex;gap:20px;align-items:flex-start}
+.citem-icon{flex-shrink:0;width:48px;height:48px;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.9rem}
+.citem h4{font-family:'Raleway',sans-serif;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+.citem p{font-size:.88rem;color:var(--tm);line-height:1.75}
+.cform{display:flex;flex-direction:column;gap:18px}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cgrp{display:flex;flex-direction:column;gap:8px}
+.cgrp label{font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--tm);font-weight:700}
+.cgrp input,.cgrp select,.cgrp textarea{background:var(--d3);border:1px solid rgba(201,168,76,.12);color:var(--t);font-family:'Raleway',sans-serif;font-size:.88rem;padding:15px 18px;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.cgrp input:focus,.cgrp select:focus,.cgrp textarea:focus{border-color:rgba(201,168,76,.45)}
+.cgrp textarea{resize:vertical;min-height:128px}
+.cgrp select{cursor:pointer}
+
+/* FOOTER */
+#footer{background:var(--d2);padding:100px 0 0;border-top:1px solid rgba(201,168,76,.12)}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:60px;padding-bottom:80px;border-bottom:1px solid rgba(255,255,255,.06)}
+.foot-brand p{font-size:.86rem;color:var(--tm);line-height:1.88;margin-top:22px;max-width:310px}
+.foot-socs{display:flex;gap:10px;margin-top:28px}
+.fsoc{width:38px;height:38px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--tm);transition:all .3s}
+.fsoc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.foot-col h4{font-family:'Raleway',sans-serif;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--w);font-weight:700;margin-bottom:28px}
+.foot-col ul{display:flex;flex-direction:column;gap:12px}
+.foot-col ul a{font-size:.86rem;color:var(--tm);transition:color .3s,padding-left .3s;display:flex;align-items:center;gap:8px}
+.foot-col ul a:hover{color:var(--gold);padding-left:6px}
+.foot-col ul a i{color:var(--gold);font-size:.7rem;width:14px}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding:28px 0;flex-wrap:wrap;gap:12px}
+.foot-bot p{font-size:.78rem;color:var(--tm)}
+
+/* FLOATS */
+.wa-float{position:fixed;bottom:32px;left:32px;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .3s,box-shadow .3s}
+.wa-float:hover{transform:scale(1.1)}
+.ig-float{position:fixed;bottom:100px;left:32px;z-index:900;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(214,36,159,.4);transition:transform .3s,box-shadow .3s}
+.ig-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(214,36,159,.55)}
+#back-top{position:fixed;bottom:32px;right:32px;z-index:900;width:48px;height:48px;background:var(--gold);border:none;color:var(--d);font-size:.9rem;cursor:pointer;display:none;align-items:center;justify-content:center;transition:transform .3s}
+#back-top.vis{display:flex}
+#back-top:hover{transform:translateY(-4px)}
+#toast{display:none;position:fixed;bottom:100px;right:32px;z-index:9999;background:linear-gradient(135deg,var(--gold),var(--gd));color:var(--d);padding:16px 26px;font-weight:700;font-size:.86rem;box-shadow:0 8px 32px rgba(201,168,76,.4)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .container,.nav-inner{padding-left:28px;padding-right:28px}
+  .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:64px}
+  .aimg-badge{right:-16px;bottom:-16px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-top{grid-template-columns:1fr 1fr;gap:48px}
+}
+@media(max-width:768px){
+  .container,.nav-inner{padding-left:20px;padding-right:20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  #about,#services,#projects,#stats,#why-us,#process,#testimonials,#contact{padding:90px 0}
+  .svc-grid,.testi-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .pcard.w2{grid-column:span 1}
+  .pcard .pimg,.pcard.w2 .pimg{height:260px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-steps{grid-template-columns:1fr 1fr;gap:44px}
+  .proc-steps::before{display:none}
+  .why-cards{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr;gap:44px}
+  .crow{grid-template-columns:1fr}
+  .hero-h1{font-size:clamp(3rem,9vw,4.5rem)}
+  .hero-stat:not(:last-child){border-right:none;margin-right:0;padding-right:28px}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .proc-steps{grid-template-columns:1fr}
+  .hero-cta{flex-direction:column}
+  .btn{justify-content:center}
+}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo"><img src="img/logo.svg" alt="JS Infra Projects"></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact" class="nav-cta btn">Get In Touch</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#projects" onclick="toggleMenu()">Portfolio</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#why-us" onclick="toggleMenu()">Why Us</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-body">
+      <div class="hero-kicker">
+        <div class="hero-kicker-bar"></div>
+        <span>Mumbai&#8217;s Premier Luxury Interiors</span>
+      </div>
+      <h1 class="hero-h1">Building Trust,<em>Creating Future</em></h1>
+      <p class="hero-sub">We transform spaces into extraordinary experiences &#8212; delivering luxury residential and commercial interiors across Mumbai, Pune and beyond with unmatched craftsmanship.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-gold">Explore Our Work <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost">Free Consultation</a>
+      </div>
+      <div class="hero-bar">
+        <div class="hero-stat"><div class="hstat-n">15<sup>+</sup></div><div class="hstat-l">Years Experience</div></div>
+        <div class="hero-stat"><div class="hstat-n">200<sup>+</sup></div><div class="hstat-l">Projects Completed</div></div>
+        <div class="hero-stat"><div class="hstat-n">150<sup>+</sup></div><div class="hstat-l">Happy Clients</div></div>
+        <div class="hero-stat"><div class="hstat-n">100<sup>%</sup></div><div class="hstat-l">Client Satisfaction</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="aimg-wrap reveal fl">
+        <div class="aimg-corner"></div>
+        <div class="aimg-main"><img src="img/project3_silverence_img1.jpg" alt="Silverence Tower Interior" loading="lazy"></div>
+        <div class="aimg-badge"><span class="n">15+</span><span class="l">Years of<br>Excellence</span></div>
+      </div>
+      <div class="reveal fr">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="big-title" style="margin-top:22px">Crafting Luxury Spaces<br><em>With Passion</em></h2>
+        <div class="gold-rule"></div>
+        <p style="font-size:.93rem;color:var(--tm);line-height:1.95;margin-bottom:14px">JS Infra Projects is a leading luxury interior design and infrastructure firm based in Mumbai. With over 15&nbsp;years of experience, we have delivered bespoke residential and commercial spaces for India&#8217;s most discerning clientele &#8212; including the Jindal family villa, Manoj Modi&#8217;s residence, and landmark projects across Mumbai and Pune.</p>
+        <p style="font-size:.93rem;color:var(--tm);line-height:1.95">Our philosophy: every space tells a story. We blend timeless design principles with contemporary aesthetics, premium materials, and impeccable execution to create environments that inspire, comfort, and endure.</p>
+        <div class="about-feats">
+          <div class="afeat"><div class="afeat-icon"><i class="fas fa-award"></i></div><div><h4>Award-Winning Design</h4><p>Recognised for exceptional design quality and innovation across residential and commercial projects.</p></div></div>
+          <div class="afeat"><div class="afeat-icon"><i class="fas fa-gem"></i></div><div><h4>Premium Materials Only</h4><p>We source the finest Italian marble, custom woodwork, designer lighting and bespoke furniture worldwide.</p></div></div>
+          <div class="afeat"><div class="afeat-icon"><i class="fas fa-handshake"></i></div><div><h4>End-to-End Project Management</h4><p>From concept to completion, our dedicated project managers ensure on-time, on-budget delivery.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="svc-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="big-title" style="margin-top:22px">Our <em>Services</em></h2>
+      <div class="gold-rule c"></div>
+      <p style="font-size:.95rem;color:var(--tm);max-width:540px;margin:0 auto;line-height:1.9">From concept design to final installation, a complete suite of luxury interior and infrastructure services tailored to your vision.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><span class="svc-num">01</span><div class="svc-icon"><i class="fas fa-couch"></i></div><h3>Luxury Residential Interiors</h3><p>Complete interior design and execution for premium apartments, villas, and bungalows with bespoke furniture, lighting, and finishes.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+      <div class="svc-card reveal"><span class="svc-num">02</span><div class="svc-icon"><i class="fas fa-building"></i></div><h3>Commercial &amp; Office Spaces</h3><p>High-end office interiors, showrooms, and commercial spaces designed to reflect brand identity and enhance productivity.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+      <div class="svc-card reveal"><span class="svc-num">03</span><div class="svc-icon"><i class="fas fa-utensils"></i></div><h3>Modular Kitchen Design</h3><p>Italian-inspired modular kitchens with premium hardware, quartz countertops, and smart storage solutions for modern living.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+      <div class="svc-card reveal"><span class="svc-num">04</span><div class="svc-icon"><i class="fas fa-bath"></i></div><h3>Bathroom &amp; Wellness Spaces</h3><p>Spa-like bathrooms featuring premium marble, designer fittings, steam showers, and custom vanities for ultimate luxury.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+      <div class="svc-card reveal"><span class="svc-num">05</span><div class="svc-icon"><i class="fas fa-lightbulb"></i></div><h3>Architectural Lighting Design</h3><p>Lighting concepts that enhance ambience, highlight design features, and create unforgettable atmospheres throughout your space.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+      <div class="svc-card reveal"><span class="svc-num">06</span><div class="svc-icon"><i class="fas fa-tools"></i></div><h3>Turnkey Civil &amp; Renovation</h3><p>Complete civil construction, structural modifications, and renovation services managed end-to-end for a seamless handover.</p><span class="svc-more">Learn More <i class="fas fa-arrow-right"></i></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="proj-head">
+      <div class="reveal fl">
+        <span class="eyebrow">Our Work</span>
+        <h2 class="big-title" style="margin-top:22px">Featured <em>Projects</em></h2>
+        <div class="gold-rule"></div>
+      </div>
+      <a href="#contact" class="btn btn-ghost reveal fr">Start Your Project</a>
+    </div>
+    <div class="proj-grid">
+      <div class="pcard w2 reveal"><div class="pimg"><img src="img/project6_jindal_img1.jpg" alt="Jindal Villa" loading="lazy"></div><div class="poverlay"><div class="ptag">Luxury Residential Villa</div><div class="ptitle">Jindal Villa &#8212; Nepeansea Road</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Sajjan Jindal &nbsp;&#8226;&nbsp; Mumbai</div></div><div class="pyear">2021</div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard reveal"><div class="pimg"><img src="img/project7_vrindavan_img1.jpg" alt="Vrindavan" loading="lazy"></div><div class="poverlay"><div class="ptag">High-Rise Residence</div><div class="ptitle">Vrindavan &#8212; Nepeansea Road</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Manoj Modi &nbsp;&#8226;&nbsp; Mumbai</div></div><div class="pyear">2022</div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard reveal"><div class="pimg"><img src="img/project3_silverence_img1.jpg" alt="Silverence" loading="lazy"></div><div class="poverlay"><div class="ptag">Luxury Duplex</div><div class="ptitle">Duplex @ Silverence Tower</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Worli Seaface &nbsp;&#8226;&nbsp; Mumbai</div></div><div class="pyear">2020</div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard reveal"><div class="pimg"><img src="img/project4_aamby_img1.jpg" alt="Aamby Valley" loading="lazy"></div><div class="poverlay"><div class="ptag">Weekend Villa</div><div class="ptitle">Aamby Valley Residence</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Lonavala &nbsp;&#8226;&nbsp; Maharashtra</div></div><div class="pyear">2020</div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard reveal"><div class="pimg"><img src="img/project1_sancheti_img1.jpg" alt="Sancheti House" loading="lazy"></div><div class="poverlay"><div class="ptag">5 BHK Residential</div><div class="ptitle">Dr. Parag Sancheti House</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Pune &nbsp;&#8226;&nbsp; Maharashtra</div></div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard w2 reveal"><div class="pimg"><img src="img/project5_imperial_img1.jpg" alt="Imperial Tower" loading="lazy"></div><div class="poverlay"><div class="ptag">Ultra-Premium Tower</div><div class="ptitle">Imperial North Tower</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Jigna Shah &nbsp;&#8226;&nbsp; Mumbai</div></div><div class="pyear">2018</div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+      <div class="pcard reveal"><div class="pimg"><img src="img/project2_romell_img1.jpg" alt="Romell Aether" loading="lazy"></div><div class="poverlay"><div class="ptag">Premium Apartment</div><div class="ptitle">Romell Aether Tower B101</div><div class="ploc"><i class="fas fa-map-marker-alt"></i> Goregaon East &nbsp;&#8226;&nbsp; Mumbai</div></div><div class="parrow"><i class="fas fa-arrow-right"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-c reveal"><div class="stat-n" id="s1">0+</div><div class="stat-l">Years of Excellence</div></div>
+      <div class="stat-c reveal"><div class="stat-n" id="s2">0+</div><div class="stat-l">Projects Delivered</div></div>
+      <div class="stat-c reveal"><div class="stat-n" id="s3">0+</div><div class="stat-l">Happy Clients</div></div>
+      <div class="stat-c reveal"><div class="stat-n" id="s4">0%</div><div class="stat-l">Client Satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-cards reveal fl">
+        <div class="wcard"><i class="fas fa-medal"></i><h4>Premium Craftsmanship</h4><p>Every detail is executed with precision, from custom joinery to hand-laid marble.</p></div>
+        <div class="wcard"><i class="fas fa-clock"></i><h4>On-Time Delivery</h4><p>We have a proven track record of completing projects within agreed timelines.</p></div>
+        <div class="wcard"><i class="fas fa-shield-alt"></i><h4>Quality Guarantee</h4><p>All our work comes with comprehensive quality assurance and after-sales support.</p></div>
+        <div class="wcard"><i class="fas fa-paint-brush"></i><h4>Bespoke Designs</h4><p>No two projects are alike &#8212; every design is uniquely crafted for the client.</p></div>
+      </div>
+      <div class="reveal fr">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 class="big-title" style="margin-top:22px">The JS Infra <em>Difference</em></h2>
+        <div class="gold-rule"></div>
+        <p style="font-size:.92rem;color:var(--tm);line-height:1.95">We don&#8217;t just design spaces &#8212; we build lasting relationships. Our clients trust us with their most prized possessions because we treat every project as our own home.</p>
+        <div class="why-pts">
+          <div class="wpt"><i class="fas fa-check"></i><span>Free initial design consultation with no obligations</span></div>
+          <div class="wpt"><i class="fas fa-check"></i><span>Transparent pricing with detailed cost breakdowns</span></div>
+          <div class="wpt"><i class="fas fa-check"></i><span>Dedicated project manager assigned for every client</span></div>
+          <div class="wpt"><i class="fas fa-check"></i><span>Post-completion support and 1-year warranty on work</span></div>
+          <div class="wpt"><i class="fas fa-check"></i><span>Trusted by India&#8217;s top industrialists and families</span></div>
+        </div>
+        <a href="#contact" class="btn btn-gold" style="margin-top:44px">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="proc-head reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="big-title" style="margin-top:22px">Our <em>Process</em></h2>
+      <div class="gold-rule c"></div>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step reveal"><div class="proc-circle"><i class="fas fa-comments"></i></div><div class="proc-num">Step 01</div><h4>Meet &amp; Understand</h4><p>We begin with an in-depth consultation to understand your vision, lifestyle, and budget expectations.</p></div>
+      <div class="proc-step reveal"><div class="proc-circle"><i class="fas fa-pencil-ruler"></i></div><div class="proc-num">Step 02</div><h4>Concept &amp; Design</h4><p>Our designers develop mood boards, 3D visualisations, and detailed drawings aligned with your brief.</p></div>
+      <div class="proc-step reveal"><div class="proc-circle"><i class="fas fa-hammer"></i></div><div class="proc-num">Step 03</div><h4>Fabricate &amp; Source</h4><p>Custom furniture, premium materials and fittings are procured and fabricated to the highest standards.</p></div>
+      <div class="proc-step reveal"><div class="proc-circle"><i class="fas fa-check-double"></i></div><div class="proc-num">Step 04</div><h4>Install &amp; Handover</h4><p>Expert installation teams complete the project on schedule, with a thorough quality check before handover.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="testi-head reveal">
+      <span class="eyebrow">Client Words</span>
+      <h2 class="big-title" style="margin-top:22px">What Our <em>Clients Say</em></h2>
+      <div class="gold-rule c"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard reveal"><span class="tcard-q">&#8220;</span><p class="tcard-text">JS Infra transformed our Nepeansea Road villa into a masterpiece. Their attention to detail, quality of materials, and commitment to our vision was unparalleled. We couldn&#8217;t be happier with the outcome.</p><div class="tcard-author"><div class="tcard-av">SJ</div><div><div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tcard-name">Sajjan Jindal</div><div class="tcard-role">Jindal Villa, Mumbai</div></div></div></div>
+      <div class="tcard reveal"><span class="tcard-q">&#8220;</span><p class="tcard-text">Working with JS Infra on our Vrindavan residence was a pleasure from start to finish. The team&#8217;s creativity, professionalism, and ability to deliver on time made the entire process stress-free and enjoyable.</p><div class="tcard-author"><div class="tcard-av">MM</div><div><div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tcard-name">Manoj Modi</div><div class="tcard-role">Vrindavan Residence, Mumbai</div></div></div></div>
+      <div class="tcard reveal"><span class="tcard-q">&#8220;</span><p class="tcard-text">The JS Infra team designed our Pune home with incredible sensitivity to our lifestyle. Every corner reflects thoughtful design, premium craftsmanship, and a deep understanding of how we live. Highly recommended.</p><div class="tcard-author"><div class="tcard-av">PS</div><div><div class="tcard-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tcard-name">Dr. Parag Sancheti</div><div class="tcard-role">5 BHK Residence, Pune</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal fl">
+        <span class="eyebrow">Get In Touch</span>
+        <h2 class="big-title" style="margin-top:22px">Start Your <em>Dream Project</em></h2>
+        <div class="gold-rule"></div>
+        <p style="font-size:.9rem;color:var(--tm);line-height:1.9">Ready to transform your space? Get in touch for a free consultation. Our team will reach out within 24 hours.</p>
+        <div class="contact-items">
+          <div class="citem"><div class="citem-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Our Office</h4><p>D 104, Balaji Residency,<br>Near Ashtavinayak, Adaigaon,<br>Adai Panvel &#8211; 410206</p></div></div>
+          <div class="citem"><div class="citem-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Call Us</h4><p>+91 98765 43210</p></div></div>
+          <div class="citem"><div class="citem-icon"><i class="fas fa-envelope"></i></div><div><h4>Email Us</h4><p>info@jsinfraprojects.com</p></div></div>
+          <div class="citem"><div class="citem-icon"><i class="fas fa-clock"></i></div><div><h4>Business Hours</h4><p>Mon &#8211; Sat: 9:00 AM &#8211; 7:00 PM</p></div></div>
+        </div>
+      </div>
+      <div class="reveal fr">
+        <form class="cform" onsubmit="handleSubmit(event)">
+          <div class="crow"><div class="cgrp"><label>Your Name *</label><input type="text" placeholder="Full Name" required></div><div class="cgrp"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div></div>
+          <div class="cgrp"><label>Email Address *</label><input type="email" placeholder="your@email.com" required></div>
+          <div class="cgrp"><label>Project Type</label><select><option value="">Select Project Type</option><option>Luxury Residential Interior</option><option>Duplex / Villa Design</option><option>Commercial / Office Space</option><option>Modular Kitchen</option><option>Bathroom Design</option><option>Turnkey Civil Work</option><option>Other</option></select></div>
+          <div class="crow"><div class="cgrp"><label>Budget Range</label><select><option value="">Select Budget</option><option>&#8377; 25 Lac &#8211; 50 Lac</option><option>&#8377; 50 Lac &#8211; 1 Cr</option><option>&#8377; 1 Cr &#8211; 3 Cr</option><option>&#8377; 3 Cr+</option></select></div><div class="cgrp"><label>Project Location</label><input type="text" placeholder="City / Area"></div></div>
+          <div class="cgrp"><label>Tell Us About Your Vision</label><textarea placeholder="Describe your project, requirements, timeline..."></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Send Enquiry &nbsp;<i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="img/logo.svg" alt="JS Infra Projects" style="height:60px;width:auto">
+        <p>Building Trust, Creating Future &#8212; Mumbai&#8217;s leading luxury interior and infrastructure specialists, delivering extraordinary spaces since 2009.</p>
+        <div class="foot-socs">
+          <a href="https://www.instagram.com/js_infraprojects?utm_source=qr&igsh=ZjI0enJibndxMTdz" class="fsoc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fsoc"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="fsoc"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="fsoc"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/919876543210" class="fsoc"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Quick Links</h4><ul><li><a href="#about">About Us</a></li><li><a href="#services">Our Services</a></li><li><a href="#projects">Portfolio</a></li><li><a href="#process">Our Process</a></li><li><a href="#why-us">Why Choose Us</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Luxury Interiors</a></li><li><a href="#services">Villa &amp; Bungalow Design</a></li><li><a href="#services">Modular Kitchens</a></li><li><a href="#services">Bathroom Design</a></li><li><a href="#services">Lighting Design</a></li><li><a href="#services">Turnkey Civil Work</a></li></ul></div>
+      <div class="foot-col"><h4>Contact</h4><ul><li><a href="tel:+919876543210"><i class="fas fa-phone"></i>+91 98765 43210</a></li><li><a href="mailto:info@jsinfraprojects.com"><i class="fas fa-envelope"></i>info@jsinfraprojects.com</a></li><li><a href="#contact"><i class="fas fa-map-marker-alt"></i>Adai Panvel, Maharashtra</a></li><li style="margin-top:20px"><a href="#contact" class="btn btn-gold" style="padding:12px 24px;font-size:.72rem">Free Consultation</a></li></ul></div>
+    </div>
+    <div class="foot-bot">
+      <p>Copyright &#169; 2026 JS Infra Projects. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;&#8226;&nbsp; Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<a href="https://www.instagram.com/js_infraprojects?utm_source=qr&igsh=ZjI0enJibndxMTdz" class="ig-float" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/919876543210" class="wa-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div id="toast"><i class="fas fa-check-circle" style="margin-right:8px"></i>Enquiry sent! We&#8217;ll contact you shortly.</div>
+
+<script>
+const navbar=document.getElementById('navbar');
+const backTop=document.getElementById('back-top');
+window.addEventListener('scroll',()=>{const y=window.scrollY;navbar.classList.toggle('scrolled',y>60);backTop.classList.toggle('vis',y>400)});
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;const d=parseFloat(el.dataset.delay||0);setTimeout(()=>el.classList.add('vis'),d*1000)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{const p=el.parentElement;const s=[...p.children].filter(c=>c.classList.contains('reveal'));const idx=s.indexOf(el);if(s.length>1)el.dataset.delay=idx*0.1;ro.observe(el)});
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--gold)':''})});
+function handleSubmit(e){e.preventDefault();const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',4000);e.target.reset()}
+function count(el,target,suffix){let v=0;const step=Math.ceil(target/55);const t=setInterval(()=>{v=Math.min(v+step,target);el.textContent=v+suffix;if(v>=target)clearInterval(t)},22)}
+const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){count(document.getElementById('s1'),15,'+');count(document.getElementById('s2'),200,'+');count(document.getElementById('s3'),150,'+');count(document.getElementById('s4'),100,'%');co.unobserve(e.target)}})},{threshold:0.5});
+const sg=document.querySelector('#stats .stats-grid');if(sg)co.observe(sg);
+</script>
+</body>
+</html>
