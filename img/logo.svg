@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 440">
+<defs>
+  <linearGradient id="gF" x1="110" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#D4AF37"/>
+    <stop offset="100%" stop-color="#C9A84C"/>
+  </linearGradient>
+  <linearGradient id="gR" x1="200" y1="0" x2="255" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#7A5C10"/>
+    <stop offset="100%" stop-color="#4E3A08"/>
+  </linearGradient>
+  <linearGradient id="gT" x1="0" y1="42" x2="0" y2="110" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#FFE680"/>
+    <stop offset="100%" stop-color="#C9A84C"/>
+  </linearGradient>
+  <linearGradient id="gTxt" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#E8C96E"/>
+    <stop offset="45%" stop-color="#D4AF37"/>
+    <stop offset="100%" stop-color="#9A7620"/>
+  </linearGradient>
+  <clipPath id="cF"><polygon points="110,110 200,110 200,360 110,360"/></clipPath>
+  <clipPath id="cR"><polygon points="200,110 255,82 255,332 200,360"/></clipPath>
+</defs>
+<polygon points="200,110 255,82 255,332 200,360" fill="url(#gR)"/>
+<polygon points="110,110 200,110 200,360 110,360" fill="url(#gF)"/>
+<polygon points="207,40 255,82 200,110 110,110 165,82" fill="url(#gT)"/>
+<rect x="118" y="122" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="122" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="122" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="122" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="148" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="148" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="148" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="148" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="174" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="174" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="174" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="174" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="200" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="200" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="200" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="200" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="226" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="226" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="226" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="226" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="252" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="252" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="252" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="252" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="278" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="278" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="278" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="278" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="304" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="304" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="304" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="304" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="118" y="330" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="139" y="330" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="160" y="330" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<rect x="181" y="330" width="12" height="18" fill="rgba(0,0,0,0.58)" rx="0.5" clip-path="url(#cF)"/>
+<line x1="110" y1="144" x2="200" y2="144" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="170" x2="200" y2="170" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="196" x2="200" y2="196" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="222" x2="200" y2="222" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="248" x2="200" y2="248" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="274" x2="200" y2="274" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="300" x2="200" y2="300" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<line x1="110" y1="326" x2="200" y2="326" stroke="rgba(0,0,0,0.12)" stroke-width="0.6"/>
+<polygon points="206.0,118.9 215.0,114.4 215.0,130.4 206.0,134.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,110.8 231.0,106.2 231.0,122.2 222.0,126.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,146.9 215.0,142.4 215.0,158.4 206.0,162.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,138.8 231.0,134.2 231.0,150.2 222.0,154.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,174.9 215.0,170.4 215.0,186.4 206.0,190.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,166.8 231.0,162.2 231.0,178.2 222.0,182.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,202.9 215.0,198.4 215.0,214.4 206.0,218.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,194.8 231.0,190.2 231.0,206.2 222.0,210.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,230.9 215.0,226.4 215.0,242.4 206.0,246.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,222.8 231.0,218.2 231.0,234.2 222.0,238.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,258.9 215.0,254.4 215.0,270.4 206.0,274.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,250.8 231.0,246.2 231.0,262.2 222.0,266.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,286.9 215.0,282.4 215.0,298.4 206.0,302.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,278.8 231.0,274.2 231.0,290.2 222.0,294.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,314.9 215.0,310.4 215.0,326.4 206.0,330.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,306.8 231.0,302.2 231.0,318.2 222.0,322.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="206.0,342.9 215.0,338.4 215.0,354.4 206.0,358.9" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<polygon points="222.0,334.8 231.0,330.2 231.0,346.2 222.0,350.8" fill="rgba(0,0,0,0.52)" clip-path="url(#cR)"/>
+<line x1="110" y1="110" x2="110" y2="360" stroke="rgba(255,220,80,0.18)" stroke-width="1"/>
+<line x1="200" y1="110" x2="200" y2="360" stroke="rgba(0,0,0,0.25)" stroke-width="1"/>
+<polygon points="207,40 255,82 200,110 110,110 165,82" fill="none" stroke="rgba(255,240,120,0.22)" stroke-width="1"/>
+<text x="155" y="393" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="33" fill="url(#gTxt)" text-anchor="middle" letter-spacing="3">JS INFRA</text>
+<text x="155" y="415" font-family="'Arial Narrow',Arial,Helvetica,sans-serif" font-size="12.5" fill="url(#gTxt)" text-anchor="middle" letter-spacing="8" font-weight="600">PROJECTS</text>
+<text x="155" y="433" font-family="Georgia,serif" font-style="italic" font-size="8.5" fill="#C9A84C" text-anchor="middle" opacity="0.82" letter-spacing="0.5">Building Trust, Creating Future</text>
+</svg>
